@@ -49,7 +49,7 @@ public class DispatcherServlet extends HttpServlet {
     @Override
     public void init(ServletConfig config) throws ServletException {
         // 扫描的基包
-        final String basePackage = "com.summer";
+        final String basePackage = "com.java_practice_code.summer";
         try {
             // 扫描基包得到全部的带包全限定类名
             scanBasePackage(basePackage);
