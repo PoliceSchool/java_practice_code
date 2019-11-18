@@ -1,56 +1,69 @@
 package com.java_practice_code.algorithm.背包算法;
 
 
+import java.util.Arrays;
+
 /**
  * 背包算法代码：https://www.geeksforgeeks.org/java-program-for-dynamic-programming-set-10-0-1-knapsack-problem/
  * 记录路径：http://www.voidcn.com/article/p-bcrsptpr-ok.html
+ *
  * @author lujingxiao
  */
 public class KnapsackDynamic {
-    // A utility function that returns maximum of two integers
-    static int max(int a, int b) {
-        return (a > b) ? a : b;
+
+    public static void main(String[] args) {
+        int capacity = 10;
+        int[] val = new int[]{6, 3, 5, 4, 6};
+        int[] weight = new int[]{2, 2, 6, 5, 4};
+        System.out.println(Knapsack.knapSack(capacity, weight, val, val.length));
     }
 
-    // Returns the maximum value that can be put in a knapsack
-    // of capacity W
-    static int knapSack(int W, int wt[], int val[], int n) {
-        int i, w;
-        int K[][] = new int[n + 1][W + 1];
-        // Build table K[][] in bottom up manner
-        for (i = 0; i <= n; i++) {
-            for (w = 0; w <= W; w++) {
-                if (i == 0 || w == 0) {
-                    K[i][w] = 0;
-                } else if (wt[i - 1] <= w) {
-                    K[i][w] = max(val[i - 1] + K[i - 1][w - wt[i - 1]], K[i - 1][w]);
-                } else {
-                    K[i][w] = K[i - 1][w];
+    static class Knapsack {
+        static int max(int a, int b) {
+            return (a > b) ? a : b;
+        }
+
+        static KnapsackResult knapSack(int capacity, int[] weight, int[] val, int n) {
+            int i, w;
+            int[][] path = new int[n + 1][capacity + 1];
+            for (i = 0; i <= n; i++) {
+                for (w = 0; w <= capacity; w++) {
+                    if (i == 0 || w == 0) {
+                        path[i][w] = 0;
+                    } else if (weight[i - 1] <= w) {
+                        path[i][w] = max(val[i - 1] + path[i - 1][w - weight[i - 1]], path[i - 1][w]);
+                    } else {
+                        path[i][w] = path[i - 1][w];
+                    }
                 }
             }
-        }
-
-        int result = K[n][W];
-        int[] used = new int[n];
-        for (int index = n; index >= 1; index--) {
-            if (K[index][W] != K[index - 1][W]) {
-                used[index - 1] = 1;
-                W -= wt[index - 1];
+            int result = path[n][capacity];
+            int[] used = new int[n];
+            for (int index = n; index >= 1; index--) {
+                if (path[index][capacity] != path[index - 1][capacity]) {
+                    used[index - 1] = 1;
+                    capacity -= weight[index - 1];
+                }
             }
+            return new KnapsackResult(result, used);
         }
-        for (int index = 0; index <= n - 1; index++) {
-            System.out.print(used[index]);
-        }
-        System.out.println();
-        return result;
     }
 
-    // Driver program to test above function
-    public static void main(String args[]) {
-        int val[] = new int[]{6, 3, 5, 4, 6};
-        int wt[] = new int[]{2, 2, 6, 5, 4};
-        int W = 10;
-        int n = val.length;
-        System.out.println(knapSack(W, wt, val, n));
+    static class KnapsackResult {
+        int result;
+        int[] used;
+
+        KnapsackResult(int result, int[] used) {
+            this.result = result;
+            this.used = used;
+        }
+
+        @Override
+        public String toString() {
+            return "KnapsackResult{" +
+                    "result=" + result +
+                    ", used=" + Arrays.toString(used) +
+                    '}';
+        }
     }
 }
