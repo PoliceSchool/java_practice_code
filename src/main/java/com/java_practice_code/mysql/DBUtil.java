@@ -13,7 +13,7 @@ import java.sql.SQLException;
 class DBUtil {
     private final static String PASSWORD = "root";
     private final static String USER_NAME = "root";
-    private final static String URL = "jdbc:mysql://47.107.94.174:3306/test_insert";
+    private final static String URL = "jdbc:mysql://localhost:3306/test_insert";
 
     /**
      * 记得导入JDBC驱动包，不然会报错；
