@@ -1,5 +1,8 @@
 package com.java_practice_code.algorithm.背包算法;
 
+/**
+ * 参考链接：https://www.geeksforgeeks.org/minimum-cost-to-fill-given-weight-in-a-bag/
+ */
 public class KnapsackMinimum {
     private static KnapsackResult knapSack(int[] val, int[] weight, int n, int capacity, int maxMum) {
         int[][] path = new int[n + 1][capacity + 1];
