@@ -1,7 +1,7 @@
 package com.java_practice_code.algorithm.背包算法;
 
 public class KnapsackMinimum {
-    private static int knapSack(int[] val, int[] weight, int n, int capacity, int maxMum) {
+    private static KnapsackResult knapSack(int[] val, int[] weight, int n, int capacity, int maxMum) {
         int[][] path = new int[n + 1][capacity + 1];
         for (int i = 0; i <= capacity; i++) {
             path[0][i] = maxMum;
@@ -18,7 +18,15 @@ public class KnapsackMinimum {
                 }
             }
         }
-        return path[n][capacity];
+        int result = path[n][capacity];
+        int[] used = new int[n];
+        for (int index = n; index >= 1; index--) {
+            if (path[index][capacity] != path[index - 1][capacity]) {
+                used[index - 1] = 1;
+                capacity -= weight[index - 1];
+            }
+        }
+        return new KnapsackResult(result, used);
     }
 
     public static void main(String[] args) {

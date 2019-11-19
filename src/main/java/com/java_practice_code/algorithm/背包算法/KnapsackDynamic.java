@@ -1,8 +1,6 @@
 package com.java_practice_code.algorithm.背包算法;
 
 
-import java.util.Arrays;
-
 /**
  * 背包算法代码：https://www.geeksforgeeks.org/java-program-for-dynamic-programming-set-10-0-1-knapsack-problem/
  * 记录路径：http://www.voidcn.com/article/p-bcrsptpr-ok.html
@@ -46,24 +44,6 @@ public class KnapsackDynamic {
                 }
             }
             return new KnapsackResult(result, used);
-        }
-    }
-
-    static class KnapsackResult {
-        int result;
-        int[] used;
-
-        KnapsackResult(int result, int[] used) {
-            this.result = result;
-            this.used = used;
-        }
-
-        @Override
-        public String toString() {
-            return "KnapsackResult{" +
-                    "result=" + result +
-                    ", used=" + Arrays.toString(used) +
-                    '}';
         }
     }
 }
