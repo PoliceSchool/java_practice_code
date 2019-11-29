@@ -1,8 +1,8 @@
 package com.java_practice_code.designpattern.chain_of_responsibility.my_version;
 
 
-public class FirstChain extends AbstractChain {
-    public FirstChain(int level){
+public class MemberAChain extends AbstractChain {
+    public MemberAChain(int level){
         this.level = level;
     }
 

@@ -9,8 +9,8 @@ import java.util.Objects;
  * @version:
  * @date: Created in 2019/11/29.
  */
-public class SevenChain extends AbstractChain {
-    public SevenChain(int level) {
+public class QuYuZongDaiAChain extends AbstractChain {
+    public QuYuZongDaiAChain(int level) {
         this.level = level;
     }
 

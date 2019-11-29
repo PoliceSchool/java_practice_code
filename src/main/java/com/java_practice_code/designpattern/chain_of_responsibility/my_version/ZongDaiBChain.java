@@ -3,8 +3,8 @@ package com.java_practice_code.designpattern.chain_of_responsibility.my_version;
 
 import java.util.Objects;
 
-public class FourChain extends AbstractChain {
-    public FourChain(int level){
+public class ZongDaiBChain extends AbstractChain {
+    public ZongDaiBChain(int level){
         this.level = level;
     }
     @Override

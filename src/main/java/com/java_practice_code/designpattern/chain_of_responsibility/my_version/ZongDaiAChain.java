@@ -1,8 +1,8 @@
 package com.java_practice_code.designpattern.chain_of_responsibility.my_version;
 
 
-public class FiveChain extends AbstractChain {
-    public FiveChain(int level) {
+public class ZongDaiAChain extends AbstractChain {
+    public ZongDaiAChain(int level) {
         this.level = level;
     }
 
