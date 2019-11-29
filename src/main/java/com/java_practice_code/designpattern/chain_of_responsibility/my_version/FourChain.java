@@ -10,17 +10,17 @@ public class FourChain extends AbstractChain {
     @Override
     protected void centCommission(Node prev, Node now) {
         if (Objects.isNull(prev)) {
-            System.out.println("发放90%奖金");
+            System.out.println("发放179元");
             return;
         }
-        if (prev.getLevel() == AbstractChain.FIRST) {
-            System.out.println("发放50%奖金");
+        if (prev.getLevel() == AbstractChain.MEMBER_A) {
+            System.out.println("发放79元");
         }
-        if (prev.getLevel() == AbstractChain.SECOND) {
-            System.out.println("发放25%奖金");
+        if (prev.getLevel() == AbstractChain.MEMDIAN_B) {
+            System.out.println("发放40元");
         }
-        if (prev.getLevel() == AbstractChain.THIRD) {
-            System.out.println("发放10%奖金");
+        if (prev.getLevel() == AbstractChain.MEMDIAN_A) {
+            System.out.println("发放35元");
         }
     }
 }

@@ -6,12 +6,13 @@ import org.springframework.util.CollectionUtils;
 import java.util.LinkedList;
 
 public abstract class AbstractChain {
-    static int FIRST = 1;
-    static int SECOND = 2;
-    static int THIRD = 3;
-    static int FOUR = 4;
-    static int FIVE = 5;
-    static int SIX = 6;
+    static int MEMBER_A = 1;
+    static int MEMDIAN_B = 2;
+    static int MEMDIAN_A = 3;
+    static int ZONGDAI_B = 4;
+    static int ZONGDAI_A = 5;
+    static int QUYUZONGDAI_B = 6;
+    static int QUYUZONGDAI_A = 7;
 
     protected int level;
 

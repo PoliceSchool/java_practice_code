@@ -1,10 +1,16 @@
 package com.java_practice_code.designpattern.chain_of_responsibility.my_version;
 
-
 import java.util.Objects;
 
-public class SixChain extends AbstractChain {
-    public SixChain(int level) {
+/**
+ * @author: lujingxiao
+ * @description:
+ * @since:
+ * @version:
+ * @date: Created in 2019/11/29.
+ */
+public class SevenChain extends AbstractChain {
+    public SevenChain(int level) {
         this.level = level;
     }
 
@@ -25,6 +31,9 @@ public class SixChain extends AbstractChain {
         }
         if (prev.getLevel() == AbstractChain.ZONGDAI_A) {
             System.out.println("发放25元");
+        }
+        if (prev.getLevel() == AbstractChain.QUYUZONGDAI_B) {
+            System.out.println("发放1元");
         }
     }
 }

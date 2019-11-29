@@ -8,6 +8,6 @@ public class FirstChain extends AbstractChain {
 
     @Override
     protected void centCommission(Node prev, Node now) {
-        System.out.println("发放40%奖金");
+        System.out.println("发放100元");
     }
 }

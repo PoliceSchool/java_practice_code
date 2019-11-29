@@ -5,18 +5,21 @@ import java.util.LinkedList;
 
 public class ChainPatternDemo {
     private static AbstractChain getChains() {
-        AbstractChain firstChain = new FirstChain(AbstractChain.FIRST);
-        AbstractChain secondChain = new SecondChain(AbstractChain.SECOND);
-        AbstractChain thirdChain = new ThirdChain(AbstractChain.THIRD);
-        AbstractChain fourChain = new FourChain(AbstractChain.FOUR);
-        AbstractChain fiveChain = new FiveChain(AbstractChain.FIVE);
-        AbstractChain sixChain = new SixChain(AbstractChain.SIX);
+        AbstractChain firstChain = new FirstChain(AbstractChain.MEMBER_A);
+        AbstractChain secondChain = new SecondChain(AbstractChain.MEMDIAN_B);
+        AbstractChain thirdChain = new ThirdChain(AbstractChain.MEMDIAN_A);
+        AbstractChain fourChain = new FourChain(AbstractChain.ZONGDAI_B);
+        AbstractChain fiveChain = new FiveChain(AbstractChain.ZONGDAI_A);
+        AbstractChain sixChain = new SixChain(AbstractChain.QUYUZONGDAI_B);
+        AbstractChain sevenChain = new SevenChain(AbstractChain.QUYUZONGDAI_A);
+
         firstChain.setNextChain(secondChain);
         secondChain.setNextChain(thirdChain);
         thirdChain.setNextChain(fourChain);
         fourChain.setNextChain(fiveChain);
         fiveChain.setNextChain(sixChain);
-        sixChain.setNextChain(null);
+        sixChain.setNextChain(sevenChain);
+        sevenChain.setNextChain(null);
 
         return firstChain;
     }

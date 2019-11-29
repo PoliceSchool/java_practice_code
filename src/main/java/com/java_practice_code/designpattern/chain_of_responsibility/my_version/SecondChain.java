@@ -11,9 +11,9 @@ public class SecondChain extends AbstractChain {
     @Override
     protected void centCommission(Node prev, Node now) {
         if (Objects.isNull(prev)) {
-            System.out.println("发放65%奖金");
+            System.out.println("发放139元");
         } else {
-            System.out.println("发放25%奖金");
+            System.out.println("发放39");
         }
 
     }
