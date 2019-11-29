@@ -17,13 +17,13 @@ public class QuYuZongDaiBChain extends AbstractChain {
         if (prev.getLevel() == AbstractChain.MEMBER_A) {
             System.out.println("发放109元");
         }
-        if (prev.getLevel() == AbstractChain.MEMDIAN_B) {
+        if (prev.getLevel() == AbstractChain.MEM_DIAN) {
             System.out.println("发放70元");
         }
-        if (prev.getLevel() == AbstractChain.ZONGDAI_B) {
+        if (prev.getLevel() == AbstractChain.ZONG_DAI) {
             System.out.println("发放30元");
         }
-        if (prev.getLevel() == AbstractChain.ZONGDAI_A) {
+        if (prev.getLevel() == AbstractChain.HENG_TUI_ZONG_DAI) {
             System.out.println("发放25元");
         }
     }

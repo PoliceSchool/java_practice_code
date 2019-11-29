@@ -16,10 +16,10 @@ public class ZongDaiBChain extends AbstractChain {
         if (prev.getLevel() == AbstractChain.MEMBER_A) {
             System.out.println("发放79元");
         }
-        if (prev.getLevel() == AbstractChain.MEMDIAN_B) {
+        if (prev.getLevel() == AbstractChain.MEM_DIAN) {
             System.out.println("发放40元");
         }
-        if (prev.getLevel() == AbstractChain.MEMDIAN_A) {
+        if (prev.getLevel() == AbstractChain.HENG_TUI_MEM_DIAN) {
             System.out.println("发放35元");
         }
     }

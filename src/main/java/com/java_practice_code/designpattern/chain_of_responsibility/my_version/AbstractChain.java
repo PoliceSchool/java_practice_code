@@ -7,12 +7,12 @@ import java.util.LinkedList;
 
 public abstract class AbstractChain {
     static int MEMBER_A = 1;
-    static int MEMDIAN_B = 2;
-    static int MEMDIAN_A = 3;
-    static int ZONGDAI_B = 4;
-    static int ZONGDAI_A = 5;
-    static int QUYUZONGDAI_B = 6;
-    static int QUYUZONGDAI_A = 7;
+    static int MEM_DIAN = 2;
+    static int HENG_TUI_MEM_DIAN = 3;
+    static int ZONG_DAI = 4;
+    static int HENG_TUI_ZONG_DAI = 5;
+    static int QU_YU_ZONG_DAI = 6;
+    static int HENG_TUI_QU_YU_ZONG_DAI = 7;
 
     protected int level;
 
