@@ -11,7 +11,11 @@ public class MemDianBChain extends AbstractChain {
     @Override
     protected void centCommission(Node prev, Node now) {
         if (Objects.isNull(prev)) {
-            System.out.println("发放139元");
+            if (now.isSelfBuy()) {
+                System.out.println("自购省钱139元");
+            } else {
+                System.out.println("发放139元");
+            }
         } else {
             System.out.println("发放39");
         }

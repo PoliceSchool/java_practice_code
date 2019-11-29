@@ -27,10 +27,14 @@ public class ChainPatternDemo {
     private static LinkedList<Node> getNodes() {
         LinkedList<Node> linkedList = new LinkedList<>();
         int[] levels = {
-                AbstractChain.MEMBER_A, AbstractChain.MEM_DIAN,
-                AbstractChain.ZONG_DAI, AbstractChain.QU_YU_ZONG_DAI};
-        for (int level : levels) {
-            linkedList.add(new Node(level));
+                AbstractChain.QU_YU_ZONG_DAI,
+                AbstractChain.HENG_TUI_QU_YU_ZONG_DAI};
+        boolean[] selfBuy = {
+                true,
+                false
+        };
+        for (int i = 0; i < levels.length; i++) {
+            linkedList.add(new Node(levels[i], selfBuy[i]));
         }
         return linkedList;
     }

@@ -11,7 +11,11 @@ public class QuYuZongDaiBChain extends AbstractChain {
     @Override
     protected void centCommission(Node prev, Node now) {
         if (Objects.isNull(prev)) {
-            System.out.println("发放209元");
+            if (now.isSelfBuy()) {
+                System.out.println("自购省钱209元");
+            } else {
+                System.out.println("发放209元");
+            }
             return;
         }
         if (prev.getLevel() == AbstractChain.MEMBER_A) {
