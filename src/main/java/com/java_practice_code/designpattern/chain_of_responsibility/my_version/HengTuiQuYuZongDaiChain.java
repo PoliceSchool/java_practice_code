@@ -7,8 +7,8 @@ package com.java_practice_code.designpattern.chain_of_responsibility.my_version;
  * @version:
  * @date: Created in 2019/11/29.
  */
-public class QuYuZongDaiAChain extends AbstractChain {
-    public QuYuZongDaiAChain(int level) {
+public class HengTuiQuYuZongDaiChain extends AbstractChain {
+    public HengTuiQuYuZongDaiChain(int level) {
         this.level = level;
     }
 

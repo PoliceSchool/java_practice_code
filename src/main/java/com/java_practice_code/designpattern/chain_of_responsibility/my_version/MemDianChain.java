@@ -3,8 +3,8 @@ package com.java_practice_code.designpattern.chain_of_responsibility.my_version;
 
 import java.util.Objects;
 
-public class MemDianBChain extends AbstractChain {
-    public MemDianBChain(int level) {
+public class MemDianChain extends AbstractChain {
+    public MemDianChain(int level) {
         this.level = level;
     }
 

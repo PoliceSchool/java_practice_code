@@ -1,8 +1,8 @@
 package com.java_practice_code.designpattern.chain_of_responsibility.my_version;
 
 
-public class MemDianAChain extends AbstractChain {
-    public MemDianAChain(int level) {
+public class HengTuiMemDianChain extends AbstractChain {
+    public HengTuiMemDianChain(int level) {
         this.level = level;
     }
 

@@ -3,8 +3,8 @@ package com.java_practice_code.designpattern.chain_of_responsibility.my_version;
 
 import java.util.Objects;
 
-public class QuYuZongDaiBChain extends AbstractChain {
-    public QuYuZongDaiBChain(int level) {
+public class QuYuZongDaiChain extends AbstractChain {
+    public QuYuZongDaiChain(int level) {
         this.level = level;
     }
 
