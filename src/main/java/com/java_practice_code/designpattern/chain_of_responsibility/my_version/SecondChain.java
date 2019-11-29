@@ -1,0 +1,20 @@
+package com.java_practice_code.designpattern.chain_of_responsibility.my_version;
+
+
+import java.util.Objects;
+
+public class SecondChain extends AbstractChain {
+    public SecondChain(int level) {
+        this.level = level;
+    }
+
+    @Override
+    protected void centCommission(Node prev, Node now) {
+        if (Objects.isNull(prev)) {
+            System.out.println("发放65%奖金");
+        } else {
+            System.out.println("发放25%奖金");
+        }
+
+    }
+}
