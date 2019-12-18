@@ -33,7 +33,7 @@ public class ListAsyncOpearation {
         for (int i = 0; i < 5; i++) {
             list.forEach(integer -> {
                 try {
-                    add(list1, integer);
+                    list1.add(getData(integer));
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -54,7 +54,7 @@ public class ListAsyncOpearation {
         for (int i = 0; i < 5; i++) {
             list.parallelStream().forEach(integer -> {
                 try {
-                    add(list1, integer);
+                    list1.add(getData(integer));
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -68,8 +68,8 @@ public class ListAsyncOpearation {
     }
 
 
-    private static void add(List<Integer> list, int i) throws InterruptedException {
+    private static int getData(int i) throws InterruptedException {
         Thread.sleep(5);
-        list.add(i);
+        return i;
     }
 }
