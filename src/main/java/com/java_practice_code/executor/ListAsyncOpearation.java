@@ -3,6 +3,7 @@ package com.java_practice_code.executor;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * description: 测试串行往list里面添加数据与并行往线程安全的list里面添加数据的速度
@@ -19,8 +20,9 @@ public class ListAsyncOpearation {
             list.add(i);
         }
         for (int i = 0; i < 10; i++) {
-            test1(list, new ArrayList<>(size));
+//            test1(list, new ArrayList<>(size));
             test2(list, Collections.synchronizedList(new ArrayList<>(size)));
+            test3(list);
             System.out.println();
         }
     }
@@ -31,13 +33,7 @@ public class ListAsyncOpearation {
     private static void test1(List<Integer> list, List<Integer> list1) throws Exception {
         long start = System.currentTimeMillis();
         for (int i = 0; i < 5; i++) {
-            list.forEach(integer -> {
-                try {
-                    list1.add(getData(integer));
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            });
+            list.forEach(integer -> list1.add(getData(integer)));
             if (list1.size() != size) {
                 throw new Exception("错了");
             }
@@ -52,13 +48,7 @@ public class ListAsyncOpearation {
     private static void test2(List<Integer> list, List<Integer> list1) throws Exception {
         long start = System.currentTimeMillis();
         for (int i = 0; i < 5; i++) {
-            list.parallelStream().forEach(integer -> {
-                try {
-                    list1.add(getData(integer));
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            });
+            list.parallelStream().forEach(integer -> list1.add(getData(integer)));
             if (list1.size() != size) {
                 throw new Exception("错了");
             }
@@ -67,9 +57,25 @@ public class ListAsyncOpearation {
         System.out.println("并行往线程安全的list里面添加数据消耗时间：" + (System.currentTimeMillis() - start));
     }
 
+    private static void test3(List<Integer> list) throws Exception {
+        long start = System.currentTimeMillis();
+        for (int i = 0; i < 5; i++) {
+            List<Integer> list1 = list.parallelStream().map(ListAsyncOpearation::getData).collect(Collectors.toList());
+            if (list1.size() != size) {
+                throw new Exception("错了");
+            }
+            list1.clear();
+        }
+        System.out.println("使用map并行往list里面添加数据消耗时间：" + (System.currentTimeMillis() - start));
+    }
 
-    private static int getData(int i) throws InterruptedException {
-        Thread.sleep(5);
+
+    private static int getData(int i) {
+        try {
+            Thread.sleep(5);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return i;
     }
 }
