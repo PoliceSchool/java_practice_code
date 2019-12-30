@@ -10,15 +10,16 @@ package com.java_practice_code.jdbctemplatedemo.v2;
  */
 public class JdbcTest {
     public static void main(String[] args) {
-        query2("select * from user");
+        query("select * from user");
     }
 
     //内部类方式
     public static void query(final String sql) {
+        int i = 99;
         class QueryStatementCallbackOne implements StatementCallback {
             @Override
             public Object doInStatement() {
-                System.out.println("QueryStatementCallbackOne 执行完成");
+                System.out.println("QueryStatementCallbackOne 执行完成" + i);
                 return "执行完成";
             }
 
