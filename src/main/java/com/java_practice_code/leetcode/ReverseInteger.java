@@ -24,11 +24,12 @@ public class ReverseInteger {
         x = Math.abs(x);
         while (x > 0) {
             int temp = x % 10;
-            if (temp != 0 && isFirst) {
+            if (temp == 0 && isFirst) {
                 isFirst = false;
-                arr[count] = temp;
-                count++;
+                continue;
             }
+            arr[count] = temp;
+            count++;
             x /= 10;
         }
         count--;
