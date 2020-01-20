@@ -23,7 +23,7 @@ public class Test {
         proxyEat.eat();
 
         // 打印JVM在内存中生成的动态代理类
-        createProxyClassFile(Eat.class);
+//        createProxyClassFile(Eat.class);
     }
 
     private static void createProxyClassFile(Class c) {

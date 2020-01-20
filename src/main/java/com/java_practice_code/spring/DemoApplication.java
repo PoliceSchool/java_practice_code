@@ -1,4 +1,4 @@
-package com.java_practice_code.demo;
+package com.java_practice_code.spring;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
