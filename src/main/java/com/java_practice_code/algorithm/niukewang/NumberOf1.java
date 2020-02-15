@@ -7,6 +7,8 @@ package com.java_practice_code.algorithm.niukewang;
  * 原码/反码/补码的知识:https://www.cnblogs.com/zhangziqiu/archive/2011/03/30/computercode.html
  * [+1] = [00000001]原 = [00000001]反 = [00000001]补
  * [-1] = [10000001]原 = [11111110]反 = [11111111]补
+ *
+ * 已通过牛客网测试
  */
 public class NumberOf1 {
 
