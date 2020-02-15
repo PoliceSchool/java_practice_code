@@ -8,6 +8,7 @@ import org.bouncycastle.asn1.x509.UserNotice;
  * 已通过测试
  */
 public class Fibonacci {
+    // 迭代实现
     public int fibonacci(int n) {
         if (n == 0) {
             return 0;
@@ -20,6 +21,20 @@ public class Fibonacci {
             second = temp;
         }
         return second;
+    }
+
+    // 递归实现
+    public int fibonacci2(int n) {
+        if (n == 0) {
+            return 0;
+        }
+        if (n == 1) {
+            return 1;
+        }
+        if (n == 2) {
+            return 2;
+        }
+        return fibonacci2(n - 1) + fibonacci2(n - 2);
     }
 
     public static void main(String[] args) {
