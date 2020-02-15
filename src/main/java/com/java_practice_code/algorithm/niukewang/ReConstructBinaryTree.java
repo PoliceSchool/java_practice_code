@@ -1,35 +1,60 @@
 package com.java_practice_code.algorithm.niukewang;
 
+import java.util.Arrays;
+
 /**
  * 输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。
  * 例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回。
+ * <p>
+ * 已通过牛客网测试
  */
 public class ReConstructBinaryTree {
-    static int[] mapIndex = new int[256];
     static int[] pre = {1, 2, 4, 7, 3, 5, 6, 8};
     static int[] in = {4, 7, 2, 1, 5, 3, 8, 6};
 
     public TreeNode reConstructBinaryTree(int[] pre, int[] in) {
-
-        for (int i = 0; i < in.length; i++) {
-            mapIndex[in[i]] = i;
-        }
-        return reConstructBinaryTree(in.length, 0);
-    }
-
-    public TreeNode reConstructBinaryTree(int n, int offset) {
-        if (n == 0) {
+        if (pre.length == 0) {
             return null;
         }
+        if (pre.length == 1) {
+            return new TreeNode(pre[0]);
+        }
+        // 通过前序遍历数组找到根节点
         int rootVal = pre[0];
-        int i = mapIndex[rootVal] - offset;
+        // 找到中序遍历数组中根节点的位置,并以此来区分左子树和右子树
+        int rootValIndex = 0;
+        for (int i : in) {
+            if (i == rootVal) {
+                break;
+            }
+            rootValIndex++;
+        }
         TreeNode root = new TreeNode(rootVal);
-        root.left = reConstructBinaryTree(i, offset);
-        root.right = reConstructBinaryTree(n - i - 1, offset + i + 1);
+        root.left = reConstructBinaryTree(Arrays.copyOfRange(pre, 1, rootValIndex + 1),
+                Arrays.copyOfRange(in, 0, rootValIndex));
+
+        root.right = reConstructBinaryTree(
+                Arrays.copyOfRange(pre, rootValIndex + 1, pre.length),
+                Arrays.copyOfRange(in, rootValIndex + 1, pre.length));
         return root;
     }
 
-//    private TreeNode reConstructBinaryTree(int rootVal, int[] pre, int[] in) {
+    public static void main(String[] args) {
+        TreeNode node = new ReConstructBinaryTree().reConstructBinaryTree(pre, in);
+        System.out.println(node);
+    }
+
+    public class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        TreeNode(int x) {
+            val = x;
+        }
+    }
+
+    //    private TreeNode reConstructBinaryTree(int rootVal, int[] pre, int[] in) {
 //        // 先找到根节点，然后分别找到左右子树，递归去找左右子树的根节点
 //        TreeNode root = new TreeNode(rootVal);
 //        if (pre.length == 1) {
@@ -52,20 +77,4 @@ public class ReConstructBinaryTree {
 //        }
 //        return root;
 //    }
-
-    public class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
-
-    public static void main(String[] args) {
-
-        TreeNode node = new ReConstructBinaryTree().reConstructBinaryTree(pre, in);
-        System.out.println(node);
-    }
 }
