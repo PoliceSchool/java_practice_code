@@ -7,16 +7,19 @@ package com.java_practice_code.algorithm.niukewang;
  * 已通过牛客网测试
  */
 public class FindKthToTail {
-    public static ListNode findKthToTail(ListNode head, int k) {
+    /**
+     * 解题思路,先遍历整个链表,记录链表的节点个数;
+     * 然后再从头遍历至第n-k个节点即可,因为倒数第k个节点就是第n-k个节点
+     */
+    private static ListNode findKthToTail(ListNode head, int k) {
         ListNode tmp = head;
-        int n = 0, count = 1;
+        int n = 0, count = 0;
         while (null != tmp) {
             n++;
             tmp = tmp.next;
         }
-        while (!(n - k + 1 == count) && head != null) {
+        while (!(n - k == count++) && head != null) {
             head = head.next;
-            count++;
         }
         return head;
     }
@@ -31,7 +34,7 @@ public class FindKthToTail {
         first.next = second;
         second.next = third;
         third.next = four;
-        System.out.println(findKthToTail(head, 100).toString());
+        System.out.println(findKthToTail(head, 10));
     }
 
 
