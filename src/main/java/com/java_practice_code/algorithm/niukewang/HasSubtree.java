@@ -9,6 +9,8 @@ import java.util.List;
  *
  * 已通过牛客网测试
  * 解题思路:遍历出树的前序遍历顺序并用list保存,在使用java自带的list接口的containsAll方法判断是否有子集合即可,这一点有点取巧了,如果不行用java的containsAll方法,也可以自行写一个判断是否存在子数组的方法
+ * 其实这个思路是有问题的,虽然通过了测试,但是有问题,因为list接口的containsAll方法判断的是
+ * 有没有包含数据,不判断顺序是否一样,所以只要两棵树中包含相同的数字,不管是不是子树,都是可以通过的.
  */
 public class HasSubtree {
     private static boolean hasSubtree(TreeNode root1, TreeNode root2) {
