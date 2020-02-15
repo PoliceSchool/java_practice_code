@@ -10,28 +10,14 @@ public class StringSort {
         while (scanner.hasNext()) {
             String str = scanner.nextLine();
             char[] chars = str.toCharArray();
-            int length = chars.length;
-            char[] temp = new char[length];
-            int index = 0;
-            for (int i = 0; i < 26; i++) {
-                for (int j = 0; j < length; j++) {
-                    char ch = chars[j];
-                    if (ch - 'a' == i || ch - 'A' == i) {
-                        temp[index++] = ch;
-                    }
+            String str1 = "";
+            for (char ch : chars) {
+                if (str1.contains(String.valueOf(ch))) {
+                    continue;
                 }
+                str1 += ch;
             }
-            index = 0;
-            char[] result = new char[length];
-            for (int j = 0; j < length; j++) {
-                char ch = chars[j];
-                if (Character.isLetter(ch)) {
-                    result[j] = temp[index++];
-                } else {
-                    result[j] = ch;
-                }
-            }
-            System.out.println(result);
+            System.out.println(str1);
         }
     }
 }
