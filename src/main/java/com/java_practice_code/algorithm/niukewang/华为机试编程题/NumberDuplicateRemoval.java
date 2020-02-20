@@ -14,20 +14,8 @@ public class NumberDuplicateRemoval {
         Scanner scanner = new Scanner(System.in);
         while (scanner.hasNext()) {
             int num = scanner.nextInt();
-//            char[] chars = str.toCharArray();
             int[] flags = new int[10];
             Arrays.fill(flags, 0);
-//            int length = flags.length - 1;
-//            int index = 0;
-//            char[] result = new char[flags.length];
-//            for (int i = length; i >= 0; i--) {
-//                if (i == length && chars[i] == 0) {
-//                    continue;
-//                }
-//                if (flags[index] == 0) {
-//                    result[index++] = chars[i];
-//                }
-//            }
             boolean needContinue = true;
             StringBuffer sb = new StringBuffer();
             while (num > 0) {
@@ -42,7 +30,7 @@ public class NumberDuplicateRemoval {
                     needContinue = false;
                 }
             }
-            System.out.println(sb.toString());
+            System.out.println(sb);
         }
     }
 }
