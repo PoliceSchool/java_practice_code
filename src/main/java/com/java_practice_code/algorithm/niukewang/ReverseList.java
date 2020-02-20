@@ -14,23 +14,23 @@ public class ReverseList {
      *           A
      * 第一步:a.next = head;
      * head              B
-     * 0   <->   0  ->   0
+     * 0   <->   0       0
      *           A
      * 第二步:head = a;
      *          head     B
-     * 0   <->   0  ->   0
+     * 0   <->   0       0
      *           A
      * 第三步:a = b;
      *          head     B
-     * 0   <->   0  ->   0
+     * 0   <->   0       0
      *                   A
      * 第四步:b = b.next;
      *          head             B
-     * 0   <->   0  ->   0   ->  0
+     * 0   <->   0       0   ->  0
      *                   A
      * 第五步(新的一轮循环):a.next = head;
      *          head               B
-     * 0   <->   0   <->   0   ->  0
+     * 0   <->   0   <-    0       0
      *                     A
      */
     private static ListNode reverseList(ListNode head) {
