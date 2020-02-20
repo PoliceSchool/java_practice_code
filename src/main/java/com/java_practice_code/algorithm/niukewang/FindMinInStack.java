@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * https://www.nowcoder.com/practice/4c776177d2c04c2494f2555c9fcc1e49?tpId=13&tqId=11173&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking
  * 定义栈的数据结构，请在该类型中实现一个能够得到栈中所含最小元素的min函数（时间复杂度应为O（1））。
- *
+ * <p>
  * 已通过牛客网测试
  */
 public class FindMinInStack {
@@ -27,6 +27,7 @@ public class FindMinInStack {
             int min = (int) arr[size - 2];
             for (int index = size - 2; index >= 0; index--) {
                 if (min > (int) arr[index]) {
+                    min = (int) arr[index];
                     minIndex = index;
                 }
             }
