@@ -6,7 +6,7 @@ import com.rabbitmq.practice.util.ConnectionUtils;
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
-public class Recv1 {
+public class RoundRobinRecv1 {
     private static final String QUEUE_NAME = "test_work_queue";
 
     public static void main(String[] args) throws IOException, TimeoutException, InterruptedException {
