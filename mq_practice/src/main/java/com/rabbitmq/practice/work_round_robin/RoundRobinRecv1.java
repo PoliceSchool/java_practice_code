@@ -1,4 +1,4 @@
-package com.rabbitmq.practice.work;
+package com.rabbitmq.practice.work_round_robin;
 
 import com.rabbitmq.client.*;
 import com.rabbitmq.practice.util.ConnectionUtils;
