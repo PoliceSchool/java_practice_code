@@ -1,2 +1,11 @@
 学习资料来源:B站的rabbitmq教学视频
 https://www.bilibili.com/video/av18997807?p=10
+学习顺序是:
+util包
+simple包
+work_round_ronbin包
+work_fair包
+message包
+ps包
+routing包
+topic包
