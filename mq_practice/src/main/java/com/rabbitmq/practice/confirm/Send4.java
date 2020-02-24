@@ -1,20 +1,23 @@
 package com.rabbitmq.practice.confirm;
 
 
+import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.ConfirmListener;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.practice.util.ConnectionUtils;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.Collections;
+import java.util.SortedSet;
+import java.util.TreeSet;
 import java.util.concurrent.TimeoutException;
 
 /**
- * mq confirm模式下的异步确认模式
+ * mq confirm模式下的异步确认模式，添加了属性的配置
  */
-public class Send3 {
-    private static final String QUEUE_NAME = "test_queue_confirm3";
+public class Send4 {
+    private static final String QUEUE_NAME = "test_queue_confirm4";
 
     public static void main(String[] args) throws IOException, TimeoutException, InterruptedException {
         // 获取一个连接
@@ -59,10 +62,13 @@ public class Send3 {
         });
 
         String msg = "hello confirm message add confirm listener!";
+        int i = 0;
         while (true) {
             long seqNo = channel.getNextPublishSeqNo();
-            channel.basicPublish("", QUEUE_NAME, null, msg.getBytes());
+            AMQP.BasicProperties properties = new AMQP.BasicProperties().builder().messageId("" + i++).build();
+            channel.basicPublish("", QUEUE_NAME, properties, msg.getBytes());
             confirmSet.add(seqNo);
+            Thread.sleep(500);
         }
     }
 }
