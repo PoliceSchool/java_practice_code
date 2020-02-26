@@ -14,7 +14,7 @@ public class ConnectionUtils {
         // 定义连接工厂
         ConnectionFactory factory = new ConnectionFactory();
         // 设置服务地址
-        factory.setHost("47.107.94.174");
+        factory.setHost("localhost");
         // AMQP 5672
         factory.setPort(5672);
         // vhost
