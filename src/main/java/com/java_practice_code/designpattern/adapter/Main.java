@@ -1,9 +1,9 @@
 package com.java_practice_code.designpattern.adapter;
 
-import com.java_practice_code.designpattern.adapter.product.FirstProduct;
-import com.java_practice_code.designpattern.adapter.service.ShopInventory;
-import com.java_practice_code.designpattern.adapter.thridpartycode.GroceryItem;
-import com.java_practice_code.designpattern.adapter.thridpartycode.GroceryItemAdapter;
+//import com.java_practice_code.designpattern.adapter.product.FirstProduct;
+//import com.java_practice_code.designpattern.adapter.service.ShopInventory;
+//import com.java_practice_code.designpattern.adapter.thridpartycode.GroceryItem;
+//import com.java_practice_code.designpattern.adapter.thridpartycode.GroceryItemAdapter;
 
 import java.util.ArrayList;
 
@@ -13,15 +13,15 @@ import java.util.ArrayList;
  */
 public class Main {
     public static void main(String[] args) {
-        ShopInventory inventory = new ShopInventory(new ArrayList<>());
-
-        inventory.addProduct(new FirstProduct("firstProduct", 55));
-
-        GroceryItem groceryItem = new GroceryItem("groceryItem", 50);
-        GroceryItemAdapter groceryItemAdapter = new GroceryItemAdapter(groceryItem);
-        inventory.addProduct(groceryItemAdapter);
-
-        System.out.println("show products");
-        inventory.showProducts();
+//        ShopInventory inventory = new ShopInventory(new ArrayList<>());
+//
+//        inventory.addProduct(new FirstProduct("firstProduct", 55));
+//
+//        GroceryItem groceryItem = new GroceryItem("groceryItem", 50);
+//        GroceryItemAdapter groceryItemAdapter = new GroceryItemAdapter(groceryItem);
+//        inventory.addProduct(groceryItemAdapter);
+//
+//        System.out.println("show products");
+//        inventory.showProducts();
     }
 }
