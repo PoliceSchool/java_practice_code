@@ -16,10 +16,10 @@ public class JvmTest {
         long total = run.totalMemory();
         long free = run.freeMemory();
         long usable = max - total + free;
-        System.out.println("最大内存 = " + max);
-        System.out.println("已分配内存 = " + total);
-        System.out.println("已分配内存中的剩余空间 = " + free);
-        System.out.println("最大可用内存 = " + usable);
+        System.out.println("最大内存 = " + max / 1024 / 1034 + "MB");
+        System.out.println("已分配内存 = " + total / 1024 / 1034 + "MB");
+        System.out.println("已分配内存中的剩余空间 = " + free / 1024 / 1034 + "MB");
+        System.out.println("最大可用内存 = " + usable / 1024 / 1034 + "MB");
 
         // https://blog.csdn.net/weixin_34008805/article/details/86731084
         MemoryMXBean memoryMxBean = ManagementFactory.getMemoryMXBean();
