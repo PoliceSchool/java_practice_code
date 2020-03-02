@@ -1,12 +1,15 @@
 package com.java_practice_code.jvm;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public class HeapTest {
     private static final int _1MB = 1024 * 1024;
+    private byte[] bytes = new byte[_1MB];
 
     public static void main(String[] args) {
-        testAllocation3();
+        testAllocation5();
     }
 
     /**
@@ -44,5 +47,34 @@ public class HeapTest {
         allocation3 = new byte[4 * _1MB];
         allocation3 = null;
         allocation3 = new byte[4 * _1MB];
+    }
+
+    /**
+     * -Xms8m -Xmx8m -XX:+PrintGCDetails
+     * 测试频繁GC,查看打印日志
+     */
+    private static void testAllocation4() {
+        String str = "www.google.com";
+        while (true) {
+            str += str + new Random().nextInt(88888888) + new Random().nextInt(999999999);
+        }
+    }
+
+    /**
+     * -Xms8m -Xmx8m -XX:+PrintGCDetails -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/home/jimson/Documents/github/policeschool/temp
+     * 测试频繁GC,下载异常日志,并使用java自带的jvisualvm工具查看
+     */
+    private static void testAllocation5() {
+        List<HeapTest> list = new ArrayList<>();
+        int count = 0;
+        try {
+            while (true) {
+                list.add(new HeapTest());
+                count++;
+            }
+        } catch (Throwable e) {
+            System.out.println("********count=" + count);
+            e.printStackTrace();
+        }
     }
 }
