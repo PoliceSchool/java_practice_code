@@ -107,8 +107,32 @@ public class Server {
     }
 
     public static void main(String[] args) throws IOException {
+        // 下面那句代码是模拟其他线程在执行任务, 也就是模拟其他线程跟server的阻塞IO程序在强占CPU资源
+        new MyThread2().start();
+        System.out.println("");
         System.out.println("server started...");
         new Server().start();
     }
 
+
+    static class MyThread1 extends Thread {
+        @Override
+        public void run() {
+            System.out.println("其他工作线程" + Thread.currentThread().getId() + "工作了");
+        }
+    }
+
+    static class MyThread2 extends Thread {
+        @Override
+        public void run() {
+            while (true) {
+                try {
+                    Thread.sleep(3000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                new MyThread1().start();
+            }
+        }
+    }
 }
