@@ -2,6 +2,9 @@ package com.java_practice_code.algorithm.niukewang.华为机试编程题;
 
 import java.util.Scanner;
 
+/**
+ * https://www.nowcoder.com/practice/7960b5038a2142a18e27e4c733855dac?tpId=37&tqId=21244&tPage=2&rp=&ru=/ta/huawei&qru=/ta/huawei/question-ranking
+ */
 public class ChangePassword {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
