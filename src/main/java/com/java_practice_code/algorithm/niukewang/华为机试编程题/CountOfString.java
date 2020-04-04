@@ -15,7 +15,6 @@ public class CountOfString {
             String str = scanner.nextLine();
             char[] chars = str.toCharArray();
             int[] flags = new int[128];
-            Arrays.fill(flags, 0);
             int count = 0;
             for (char aChar : chars) {
                 if (aChar > 0 && aChar < 127 && flags[aChar] == 0) {
