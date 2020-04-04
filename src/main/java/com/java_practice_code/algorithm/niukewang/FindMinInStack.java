@@ -9,13 +9,13 @@ import java.util.*;
  * 已通过牛客网测试
  */
 public class FindMinInStack {
-    int minIndex = 0;
+    int minNum = Integer.MAX_VALUE;
     Stack<Integer> stack = new Stack();
 
     public void push(int node) {
         stack.push(node);
         if (min() >= node) {
-            minIndex = stack.size() - 1;
+            minNum = node;
         }
     }
 
@@ -25,12 +25,12 @@ public class FindMinInStack {
             Object[] arr = stack.toArray();
             int size = arr.length;
             int min = (int) arr[size - 2];
-            for (int index = size - 2; index >= 0; index--) {
+            for (int index = size - 3; index >= 0; index--) {
                 if (min > (int) arr[index]) {
                     min = (int) arr[index];
-                    minIndex = index;
                 }
             }
+            minNum = min;
         }
         stack.pop();
     }
@@ -40,7 +40,7 @@ public class FindMinInStack {
     }
 
     public int min() {
-        return stack.elementAt(minIndex);
+        return minNum;
     }
 
     // ["PSH3","MIN","PSH4","MIN","PSH2","MIN","PSH3","MIN","POP","MIN","POP","MIN","POP","MIN","PSH0","MIN"]
