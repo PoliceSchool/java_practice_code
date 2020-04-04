@@ -13,12 +13,12 @@ public class MergeRecord {
         Scanner scanner = new Scanner(System.in);
         while (scanner.hasNext()) {
             TreeMap<Integer, Integer> map = new TreeMap<>();
-            int n = Integer.valueOf(scanner.nextLine());
+            int n = Integer.parseInt(scanner.nextLine());
             while (n-- > 0) {
                 String record = scanner.nextLine();
                 String[] arr = record.split(" ");
-                int index = Integer.valueOf(arr[0]);
-                int valueVal = Integer.valueOf(arr[1]);
+                int index = Integer.parseInt(arr[0]);
+                int valueVal = Integer.parseInt(arr[1]);
                 map.compute(index, (key, value) -> value == null ? valueVal : value + valueVal);
             }
             map.forEach((key, value) -> System.out.println(key + " " + value));
