@@ -10,6 +10,25 @@ import java.util.Scanner;
  */
 public class PrintString {
     public static void main(String[] args) {
+        solution2();
+    }
+
+    private static void solution2() {
+        Scanner scanner = new Scanner(System.in);
+        while (scanner.hasNext()) {
+            String line = scanner.nextLine();
+            while (line.length() >= 8) {
+                System.out.println(line.substring(0, 8));
+                line = line.substring(8);
+            }
+            if (line.length() > 0) {
+                line = line + "00000000";
+                System.out.println(line.substring(0, 8));
+            }
+        }
+    }
+
+    private static void solution1() {
         Scanner scanner = new Scanner(System.in);
         int count = 0;
         String[] str = {"", ""};
