@@ -1,5 +1,6 @@
 package com.java_practice_code.lambda.demo;
 
+// https://www.bilibili.com/video/BV1sE411P7C1?p=10
 public class LambdaDemo1 {
     interface Printer {
         void printer(String val);
